@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المهام اليومية</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#050505;
+color:white;
+padding:20px;
+}
+
+h1{
+text-align:center;
+margin-bottom:25px;
+color:#ff0000;
+}
+
+.xp-box{
+background:#111;
+border:1px solid rgba(255,0,0,0.2);
+padding:15px;
+border-radius:15px;
+text-align:center;
+margin-bottom:20px;
+font-size:20px;
+font-weight:bold;
+}
+
+.tasks-container{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.task{
+background:#111;
+border:1px solid rgba(255,0,0,0.2);
+border-radius:15px;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+transition:0.3s;
+}
+
+.task:hover{
+border-color:#ff0000;
+transform:translateY(-2px);
+}
+
+.task.done{
+background:rgba(0,255,0,0.1);
+border-color:lime;
+}
+
+.task-name{
+font-size:16px;
+}
+
+.task-icon{
+font-size:22px;
+}
+
+.progress-box{
+margin-top:25px;
+}
+
+.progress-bar{
+height:18px;
+background:#222;
+border-radius:20px;
+overflow:hidden;
+}
+
+.progress-fill{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#8b0000,#ff0000);
+transition:0.3s;
+}
+
+.progress-text{
+text-align:center;
+margin-top:10px;
+}
+
+.back-btn{
+display:block;
+width:220px;
+margin:30px auto;
+text-align:center;
+background:#8b0000;
+padding:12px;
+border-radius:12px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<h1>📋 المهام اليومية</h1>
+
+<div class="xp-box">
+XP : <span id="xp">0</span>
+</div>
+
+<div class="tasks-container">
+
+<div class="task" onclick="toggleTask(this)">
+<span class="task-name">📚 مراجعة التاريخ</span>
+<span class="task-icon">⭕</span>
+</div>
+
+<div class="task" onclick="toggleTask(this)">
+<span class="task-name">🌍 حل تمرين جغرافيا</span>
+<span class="task-icon">⭕</span>
+</div>
+
+<div class="task" onclick="toggleTask(this)">
+<span class="task-name">🧠 مراجعة الفلسفة</span>
+<span class="task-icon">⭕</span>
+</div>
+
+<div class="task" onclick="toggleTask(this)">
+<span class="task-name">➗ حل تمرين رياضيات</span>
+<span class="task-icon">⭕</span>
+</div>
+
+<div class="task" onclick="toggleTask(this)">
+<span class="task-name">🇬🇧 مراجعة الإنجليزية</span>
+<span class="task-icon">⭕</span>
+</div>
+
+</div>
+
+<div class="progress-box">
+<div class="progress-bar">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+
+<div class="progress-text">
+<span id="progressText">0%</span>
+</div>
+</div>
+<a href="index.html" class="back-btn">رجوع</a>
+
+<script>
+
+let xp = 0;
+
+function toggleTask(task){
+
+if(task.classList.contains("done")){
+task.classList.remove("done");
+task.querySelector(".task-icon").innerHTML="⭕";
+xp -= 10;
+}else{
+task.classList.add("done");
+task.querySelector(".task-icon").innerHTML="✅";
+xp += 10;
+}
+
+if(xp < 0) xp = 0;
+
+document.getElementById("xp").innerText = xp;
+
+updateProgress();
+}
+
+function updateProgress(){
+
+let total =
+document.querySelectorAll(".task").length;
+
+let done =
+document.querySelectorAll(".task.done").length;
+
+let percent =
+Math.round((done/total)*100);
+
+document.getElementById("progressFill").style.width =
+percent + "%";
+
+document.getElementById("progressText").innerText =
+percent + "%";
+}
+
+</script>
+
+</body>
+</html>

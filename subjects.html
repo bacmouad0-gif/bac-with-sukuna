@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المواد الدراسية</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#050505;
+color:white;
+padding:20px;
+}
+
+h1{
+text-align:center;
+margin-bottom:30px;
+color:#ff0000;
+}
+
+.subjects-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:15px;
+}
+
+.subject-card{
+background:#111;
+border:1px solid rgba(255,0,0,0.2);
+border-radius:15px;
+padding:20px;
+text-align:center;
+cursor:pointer;
+transition:0.3s;
+}
+
+.subject-card:hover{
+transform:translateY(-5px);
+border-color:#ff0000;
+}
+
+.subject-icon{
+font-size:35px;
+margin-bottom:10px;
+}
+
+.subject-name{
+font-size:16px;
+font-weight:bold;
+}
+
+.back-btn{
+display:block;
+width:200px;
+margin:30px auto;
+text-align:center;
+background:#8b0000;
+padding:12px;
+border-radius:10px;
+text-decoration:none;
+color:white;
+}
+</style>
+</head>
+
+<body>
+
+<h1>📚 المواد الدراسية</h1>
+
+<div class="subjects-grid">
+
+<div class="subject-card">
+<div class="subject-icon">➗</div>
+<div class="subject-name">الرياضيات</div>
+</div>
+
+<div class="subject-card">
+<div class="subject-icon">⚛️</div>
+<div class="subject-name">العلوم الفيزيائية</div>
+</div>
+
+<div class="subject-card">
+<div class="subject-icon">🧪</div>
+<div class="subject-name">العلوم الطبيعية</div>
+</div>
+
+<div class="subject-card">
+<div class="subject-icon">🧠</div>
+<div class="subject-name">الفلسفة</div>
+</div>
+
+<div class="subject-card">
+<div class="subject-icon">🌍</div>
+<div class="subject-name">التاريخ والجغرافيا</div>
+</div>
+
+<div class="subject-card">
+<div class="subject-icon">🇩🇿</div>
+<div class="subject-name">اللغة العربية</div>
+</div>
+
+<div class="subject-card">
+<div class="subject-icon">🇫🇷</div>
+<div class="subject-name">اللغة الفرنسية</div>
+</div>
+
+<div class="subject-card">
+<div class="subject-icon">🇬🇧</div>
+<div class="subject-name">اللغة الإنجليزية</div>
+</div>
+
+<div class="subject-card">
+<div class="subject-icon">☪️</div>
+<div class="subject-name">العلوم الإسلامية</div>
+</div>
+
+</div>
+<a href="index.html" class="back-btn">رجوع</a>
+</script>
+</body>
+</html>
